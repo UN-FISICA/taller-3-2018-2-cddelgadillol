@@ -722,6 +722,7 @@ def multiplicacion(a, b):
 	gf=98
 	pt=0
 	while g>0:
+		
 		asd=completar(asd,bsd)
 		bsd=completar(bsd,asd)
 		intermedi=A[g]*B[g]/10
@@ -807,13 +808,13 @@ def multiplicacion(a, b):
 	actualice=len(jF[0])
 	if actualice>1:
 		g=0
-		
 		while g<actualice-1:
 			solucion[0].insert(1,jF[0][actualice-g-1])
 			g=g+1
 	
-		g=0
-		pt=0
+	g=0
+	pt=0
+	
 	if len(solucion[0])==1 and len(solucion[1])<2:
 		if len(solucion[1])==0:
 			solucion[0].append(0)
@@ -1072,18 +1073,19 @@ if __name__ == "__main__":
 	contado= MyFloat(sf5,af3)
 	comparar= MyFloat(sf3,af3)
 
-	while g<90000:
-			comparar=solucio
+	while g<100:
 			solucio=solucio+(uno/(uno+dos*contado))
-			
+			comparar=solucio
 			contado=contado+uno
 			solucio=solucio-(uno/(uno+dos*contado))
 			contado=contado+uno
-			
+		
 			if comparar==solucio:
 				solucio=solucio*multiplicador
 				g=90000
 			
+			
 	g=0
+	
 	print(contado)	
 	print (solucio)
