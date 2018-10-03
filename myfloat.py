@@ -6,10 +6,14 @@ global corrimiento
 global uno
 global david
 global davi
+global guardado
 corrimiento=0
 ceros=["+",0]
 uno=[0,0]
+tceros=["+",]
+tuno=[0,]
 inicial=(ceros,uno)
+guardado=(tceros,tuno)
 estado=" "
 signo="a"
 david=" "
@@ -72,8 +76,6 @@ def completar(a,b):
 	a=(po,pb)
 	return a
 def comparacion(a, b):
-	global david
-	global davi
 	davi="rf"
 	a1=quitarc(a)[0][:]
 	a2=quitarc(a)[1][:]
@@ -81,18 +83,20 @@ def comparacion(a, b):
 	b1=quitarc(b)[0][:]
 	b2=quitarc(b)[1][:]
 	b=(b1,b2)
+
 	entero=len(a[0])
 	decimal=len(a[1])
-	kll=50
+	kll=18
 	entero2=len(b[0])
 	decimal2=len(b[1])
-	
+
 	if entero>entero2:
 		respuesta="a>b"
 	else:
 		if entero2>entero:
 			respuesta="b>a"
 		else:
+
 			g=0
 			while g<entero2-1:
 				if a[0][g+1]==b[0][g+1]:
@@ -107,9 +111,11 @@ def comparacion(a, b):
 				
 				g=g+1
 		g=0
+		
 		if kll<20:
 			a=completar(a,b)
 			b=completar(b,a)
+			
 			entero2=len(b[0])
 			decimal2=len(b[1])
 			g=0
@@ -125,9 +131,10 @@ def comparacion(a, b):
 						respuesta="b>a"
 					g=decimal2
 				g=g+1
-		if kll==99:
+		
+		if kll==99 or kll==9:
 			respuesta="b=a"
-	
+
 	david=respuesta
 	return respuesta
 def sign(a,b,op,c,d):
@@ -258,6 +265,14 @@ def vnow(a,tamaño,e):
 		a[1].append(0)
 		g=g+1
 	return a
+def vnoww(a,tamaño,e):
+	if e>0:
+		a[1].pop(0)
+	g=0
+	while g<tamaño:
+		a[1].insert(0,0)
+		g=g+1
+	return a
 def recuf(a,b):
 	global inicial
 	entero=len(a[0])
@@ -328,11 +343,6 @@ def dfimal(a,deci):
 def division(a, b):
 	global inicial
 	global signo 
-	decimal=len(a[1])
-	
-	decimal2=len(b[1])
-	corrimiento=decimal-decimal2
-	
 	asd1=quitarc(a)[0][:]
 	asd2=quitarc(a)[1][:]
 	a=(asd1,asd2)
@@ -340,6 +350,11 @@ def division(a, b):
 	bsd1=quitarc(b)[0][:]
 	bsd2=quitarc(b)[1][:]
 	b=(bsd1,bsd2)
+	
+	decimal=len(a[1])
+	
+	decimal2=len(b[1])
+	corrimiento=decimal-decimal2
 	
 	aq=pasaraunosolo(a)[0][:]
 	aq1=pasaraunosolo(a)[1][:]
@@ -351,8 +366,8 @@ def division(a, b):
 	bq1=pasaraunosolo(b)[1][:]
 	b=(bq,bq1)
 	
-	entero3=len(a);
-	entero4=len(b);
+	entero3=len(a[0]);
+	entero4=len(b[0]);
 	
 	respuesta1=inicial[0][:];
 	respuesta2=inicial[1][:];
@@ -367,18 +382,30 @@ def division(a, b):
 	minicontador=0
 	tamaño=0
 	contadorintermedio=0;
+	if len(a[0])<2:
+		a[0].append(0)
+	if len(b[0])<2:
+		b[0].append(0)
+		
+	if entero3==2 or entero4==2:
 
-	if entero3==2 or entero4==1:
-		if entero3==2 and a[0][1]==0:
-			respuesta[0][1]=0
-			return respuesta
-	else:
-		if a[1][0]==0:
-			respuesta[0][1]=0
-			return repuesta
+		if entero3==2:
+			if a[0][1]==0:
+				if len(respuesta[0])<2:
+					respuesta[0].append(0)
+					respuesta[0][1]=0
+					return respuesta
+		else:
+			if b[0][1]==0:
+				if len(respuesta[0])<2:
+					respuesta[0].append(0)
+					respuesta[0][1]=0
+					return respuesta
 	if compadre=="b=a":
-		respuesta[0][1]=1
-		return repuesta
+		if len(respuesta[0])<2:
+			respuesta[0].append(0)
+			respuesta[0][1]=1
+			return respuesta
 			
 	if compadre=="b>a":
 		g=0
@@ -417,8 +444,18 @@ def division(a, b):
 #else:
 #falta parte de la division que da como resultados numero gigantes, eso se hara despues por ahora sirve para calcular pi
 	respuesta[0][0]=signo;
-
+#a=vnoww(a,deci,0)
+	
 	return respuesta
+def deimal(a,deci):
+	g=0
+	a=vnoww(a,deci,0)
+	tama=len(a[0])
+	while g<deci:
+		a[1][deci-g-1]=a[0][tama-1-g]
+		a[0].pop(tama-1-g)
+		g=g+1
+	return a
 def volvertup(a):
 	global inicial
 	a=str(a)
@@ -534,7 +571,8 @@ def suma(a, b):
 	if estado=="*":
 		estado="*"
 	else:
-		estado=" "
+		if estado=="+":
+			estado=" "
 	respuesta1=quitarc(respuesta)[0][:]
 	respuesta2=quitarc(respuesta)[1][:]
 	respuesta=(respuesta1,respuesta2)
@@ -614,7 +652,8 @@ def resta(a, b):
 	respuesta=(respuesta1,respuesta2)
 	return respuesta
 def multiplicacion(a, b):
-	
+	##para normal elimine esta de abako y tofas sus incidencias
+	global guardado
 	global signo
 	global estado
 	global corrimiento
@@ -681,6 +720,7 @@ def multiplicacion(a, b):
 	sera=89
 	nsera=86
 	gf=98
+	pt=0
 	while g>0:
 		asd=completar(asd,bsd)
 		bsd=completar(bsd,asd)
@@ -693,18 +733,23 @@ def multiplicacion(a, b):
 		Nf2=suma(jF,multi)[1][:]
 		Nf=(Nf1,Nf2)
 		
+		
 		multi1w=inicial[0][:];
 		multi2w=inicial[1][:];
 		multi=(multi1w,multi2w)		
+
 		
 		actualice=len(Nf[0])
+		if actualice==1:
+			Nf[0].append(0)
+			actualice=2
 		solucion[0][tama-1-2*aux]=Nf[0][actualice-1]
+		pt=pt+1
 		Nf[0].pop(actualice-1)
 		jF=recuf(asd,bsd)
 		actu=len(asd[0])
 		act=len(bsd [0])
 
-		
 		a134=asd[0][:]
 		a234=asd[1][:]
 		a134.pop(actu-1)	
@@ -731,12 +776,15 @@ def multiplicacion(a, b):
 		
 		
 		actualice=len(jF[0])
+		if actualice==1:
+			jF[0].append(0)
+			actualice=2
 		solucion[0][tama-2-2*aux]=jF[0][actualice-1]
-		
+		pt=pt+1
 		jF[0].pop(actualice-1)
 		aux=aux+1
 		g=g-1
-	
+		
 		asd1=quitarc(asd)[0][:]
 		asd2=quitarc(asd)[1][:]
 		asd=(asd1,asd2)
@@ -747,23 +795,41 @@ def multiplicacion(a, b):
 		bsd=(bsd1,bsd2)
 		sera=len(asd[0])
 		nsera=len(bsd[0])
+		
+		
 		if sera==1 or nsera==1:
 			g=0
-
-	
 	solucion=quitarc(solucion)
+	
+	while len(solucion[0])<pt+1:
+		solucion[0].insert(1,0)
+		
 	actualice=len(jF[0])
 	if actualice>1:
 		g=0
+		
 		while g<actualice-1:
 			solucion[0].insert(1,jF[0][actualice-g-1])
 			g=g+1
-		g=0
 	
-	solucion=dfimal(solucion,corrimiento)
+		g=0
+		pt=0
+	if len(solucion[0])==1 and len(solucion[1])<2:
+		if len(solucion[1])==0:
+			solucion[0].append(0)
+			
+		else:
+			if solucion[1][0]==0:
+				solucion[0].append(0)
+	else:
+		solucion=dfimal(solucion,corrimiento)
+	
 	aux=0
 	
 	estado=" "
+	ent=len(solucion[0])
+	if ent<2:
+		solucion[0].append(0)
 	
 	if (solucion[0][1]=="+" or  solucion[0][1]=="-" ) :
 		solucion[0][1]=0	
@@ -775,6 +841,10 @@ def multiplicacion(a, b):
 	else:
 		signo="+"
 	solucion[0][0]=signo
+	ent=len(solucion[0])
+	if ent<2:
+		solucion[0].append(0)
+	
 	return solucion
 class MyFloat:
 	
@@ -787,9 +857,11 @@ class MyFloat:
 					global signo
 					global inicial
 					global davi
+					
 					a=(self.entera,self.decimal)
 					b=(other.entera, other.decimal)
 					davi="rf"
+					
 					if estado==" ":
 						respuesta=sign(a[0][0],b[0][0],"+",a,b)
 						g=0
@@ -806,6 +878,7 @@ class MyFloat:
 						deci=len(a[1])
 						residuo=0
 						g=deci-1
+						
 						while g>-0.001:
 							respuesta[1][g]=a[1][g]+b[1][g]+residuo
 							if respuesta[1][g]>9:
@@ -847,7 +920,7 @@ class MyFloat:
 					return MyFloat(respuesta[0],respuesta[1])	
     def __sub__(self,other):
 					a=(self.entera,self.decimal)
-					b=(other.entera, other.decimal)					
+					b=(other.entera, other.decimal)	
 					global estado
 					global signo
 					global inicial
@@ -860,8 +933,8 @@ class MyFloat:
 					if estado==" ":
 						respuesta=sign(a[0][0],b[0][0],"-",a,b)
 						g=0
-						
-					if estado=="resta":
+
+					if estado=="resta" or estado=="/" or estado=="*":
 						davi="tres"
 						g=0
 						a=completar(a,b)
@@ -899,7 +972,8 @@ class MyFloat:
 						if residuo>0:
 							
 								respuesta[0].insert(1,"error")
-					estado=" "
+					if estado=="resta":
+						estado=" "
 					respuesta1=quitarc(respuesta)[0][:]
 					respuesta2=quitarc(respuesta)[1][:]
 					respuesta=(respuesta1,respuesta2)
@@ -910,18 +984,23 @@ class MyFloat:
 						if respuesta[0][1]=="+" or respuesta[0][1]=="-":
 							respuesta[0][0]=respuesta[0][1]
 							respuesta[0][1]=0
+					if len(respuesta[0])==1:
+						respuesta[0].append(0)
+					
 					return MyFloat(respuesta[0],respuesta[1])   
     def __mul__(self,other):
 					a=(self.entera,self.decimal)
 					b=(other.entera, other.decimal)	
+					
 					solucion=multiplicacion(a, b)
+					
 					return MyFloat(solucion[0],solucion[1]) 
     def __truediv__(self,other):
 					a=(self.entera,self.decimal)
 					b=(other.entera, other.decimal)	
+					
 					solucion=division(a, b)
-					print(solucion)
-
+					
 					return MyFloat(solucion[0],solucion[1]) 
     def __radd__(self):
         pass
@@ -963,23 +1042,49 @@ class MyFloat:
     def __repr__(self):
         pass
 
-    def __eq__(self):
-        pass
+    def __eq__(self,other):
+					a=(self.entera,self.decimal)
+					b=(other.entera, other.decimal)	
+					solucion=comparacion(a, b)
+					if solucion=="b=a":
+						return True
+					else:
+						return False
 
     def __ne__(self):
-        pass
+					pass
+        
 
 if __name__ == "__main__":
     # Escribir aca el codigo para calcular pi. Al finalizar el calculo solo
     # debe imprimir el valor de pi, sin otros textos ni nada
 	sf2=["+",2]
-	af3=[3,]
-	sf3=["-",5]
-	af4=[8,]
-	
-	tf6= MyFloat(sf2,af3)
-	tf7= MyFloat(sf3,af4)
-	print (tf6)
-	print (tf7)	
-	m=(tf6/tf7)
-	print (m)
+	af3=[0,]
+	sf3=["+",1]
+	sf4=["+",4]
+	sf5=["+",0]
+	g=0
+	multiplicador=MyFloat(sf4,af3)
+	uno= MyFloat(sf3,af3)	
+	dos= MyFloat(sf2,af3)
+	denominadir= MyFloat(sf3,af3)
+	solucio= MyFloat(sf5,af3)
+	contado= MyFloat(sf5,af3)
+	comparar= MyFloat(sf3,af3)
+
+	while g<90000:
+			comparar=solucio
+			solucio=solucio+(uno/(uno+dos*contado))
+			
+			contado=contado+uno
+			solucio=solucio-(uno/(uno+dos*contado))
+			contado=contado+uno
+			
+			#if comparar==solucio:
+				
+			g=g+1
+			
+	g=0
+	solucio=solucio*multiplicador
+	print(contado)	
+	print (solucio)
