@@ -327,38 +327,98 @@ def dfimal(a,deci):
 	return a
 def division(a, b):
 	global inicial
-	olucion1=inicial[0][:];
-	olucion2=inicial[1][:];
-	olucion=(olucion1,olucion2)
-			
-	aa=desenca(a)
-	ba=desenca(b)
-	respt=aa/ba;
-	azucal=str(respt)
-	tamaño=len(azucal)
-	g=0
-	variab=9
-	olucion=quitarc(olucion)
-	olucion[1].pop(0)
-	while g<tamaño:
-		if azucal[g]=="." or variab==4:
-			if azucal[g]=="." :
-				variab=4
-			else:
-				variab=4
-				olucion[1].append(azucal[g])
-		else:
-			olucion[0].append(azucal[g])
-			variab=0
+	global signo 
+	decimal=len(a[1])
+	
+	decimal2=len(b[1])
+	corrimiento=decimal-decimal2
+	
+	asd1=quitarc(a)[0][:]
+	asd2=quitarc(a)[1][:]
+	a=(asd1,asd2)
 		
-		g=g+1
-	if olucion[0][1]=="+" or olucion[0][1]=="-":
-		olucion[0][0]=olucion[0][1]
-		olucion[0][1]=0
-		olucion=quitarc(olucion)
-	variab=9
-	g=0
-	return olucion
+	bsd1=quitarc(b)[0][:]
+	bsd2=quitarc(b)[1][:]
+	b=(bsd1,bsd2)
+	
+	aq=pasaraunosolo(a)[0][:]
+	aq1=pasaraunosolo(a)[1][:]
+	a=(aq,aq1)
+	
+	
+
+	bq=pasaraunosolo(b)[0][:]
+	bq1=pasaraunosolo(b)[1][:]
+	b=(bq,bq1)
+	
+	entero3=len(a);
+	entero4=len(b);
+	
+	respuesta1=inicial[0][:];
+	respuesta2=inicial[1][:];
+	respuesta=(respuesta1,respuesta2)
+	quitarc(respuesta)
+	respuesta[1].pop(0)
+	sign(a[0][0],b[0][0],"/",a,b)
+	compadre=comparacion(a,b)
+	cerodecimal=0
+	cerodos=0
+	tamaño=0
+	minicontador=0
+	tamaño=0
+	contadorintermedio=0;
+
+	if entero3==2 or entero4==1:
+		if entero3==2 and a[0][1]==0:
+			respuesta[0][1]=0
+			return respuesta
+	else:
+		if a[1][0]==0:
+			respuesta[0][1]=0
+			return repuesta
+	if compadre=="b=a":
+		respuesta[0][1]=1
+		return repuesta
+			
+	if compadre=="b>a":
+		g=0
+		respuesta[0].append(0)
+		a[0].append(0)
+		compadre=comparacion(a,b)
+		while compadre=="b>a" and cerodecimal<70:
+			a[0].append(0)
+			cerodecimal=cerodecimal+1
+			respuesta[1].append(0)
+			compadre=comparacion(a,b)	
+
+		tamaño=cerodecimal
+		
+		while tamaño<70:
+
+			while compadre=="a>b":
+				a=resta(a,b)
+				minicontador=minicontador+1
+				compadre=comparacion(a,b)
+			if compadre=="b=a":
+				minicontador=minicontador+1
+				respuesta[1].append(minicontador)
+				tamaño=70
+			else:
+				respuesta[1].append(minicontador)
+				tamaño=tamaño+1
+				minicontador=0
+				a[0].append(0)
+				compadre=comparacion(a,b)
+				while compadre=="b>a" and tamaño<70:
+					a[0].append(0)
+					tamaño=tamaño+1
+					respuesta[1].append(0)
+					compadre=comparacion(a,b)
+#else:
+#falta parte de la division que da como resultados numero gigantes, eso se hara despues por ahora sirve para calcular pi
+	respuesta[0][0]=signo;
+
+	return respuesta
 def volvertup(a):
 	global inicial
 	a=str(a)
@@ -505,7 +565,7 @@ def resta(a, b):
 		respuesta=sign(a[0][0],b[0][0],"-",a,b)
 		g=0
 		
-	if estado=="resta":
+	if estado=="resta" or estado=="/":
 		davi="tres"
 		g=0
 		a=completar(a,b)
@@ -520,7 +580,9 @@ def resta(a, b):
 		deci=len(a[1])
 		residuo=0
 		g=deci-1
+
 		while g>-0.001:
+			
 			respuesta[1][g]=a[1][g]-b[1][g]-residuo
 			if respuesta[1][g]<0:
 				respuesta[1][g]=respuesta[1][g]+10
@@ -531,6 +593,7 @@ def resta(a, b):
 				
 		g=ente-1
 		while g>0:
+
 			respuesta[0][g]=a[0][g]-b[0][g]-residuo
 			if respuesta[0][g]<0:
 				respuesta[0][g]=respuesta[0][g]+10
@@ -540,15 +603,18 @@ def resta(a, b):
 			g=g-1
 		g=0
 		respuesta[0][0]=signo
+		
 		if residuo>0:
 			
 				respuesta[0].insert(1,"error")
-	estado=" "
+	if estado=="resta" or estado=="suma":
+		estado=" "
 	respuesta1=quitarc(respuesta)[0][:]
 	respuesta2=quitarc(respuesta)[1][:]
 	respuesta=(respuesta1,respuesta2)
 	return respuesta
 def multiplicacion(a, b):
+	
 	global signo
 	global estado
 	global corrimiento
@@ -710,8 +776,6 @@ def multiplicacion(a, b):
 		signo="+"
 	solucion[0][0]=signo
 	return solucion
-
-
 class MyFloat:
 	
 
@@ -852,9 +916,13 @@ class MyFloat:
 					b=(other.entera, other.decimal)	
 					solucion=multiplicacion(a, b)
 					return MyFloat(solucion[0],solucion[1]) 
-    def __div__(self):
-        pass
+    def __truediv__(self,other):
+					a=(self.entera,self.decimal)
+					b=(other.entera, other.decimal)	
+					solucion=division(a, b)
+					print(solucion)
 
+					return MyFloat(solucion[0],solucion[1]) 
     def __radd__(self):
         pass
 
@@ -864,8 +932,12 @@ class MyFloat:
     def __rmul__(self):
         pass
 
-    def __rdiv__(self):
-        pass
+    def __rdiv__(self,other):
+					a=(self.entera,self.decimal)
+					b=(other.entera, other.decimal)	
+					solucion=division(a, b)
+
+					return MyFloat(solucion[0],solucion[1]) 
 
     def __str__(self):
 					g=0
@@ -907,7 +979,7 @@ if __name__ == "__main__":
 	
 	tf6= MyFloat(sf2,af3)
 	tf7= MyFloat(sf3,af4)
-	m=tf6*tf7
 	print (tf6)
-	print (tf7)
+	print (tf7)	
+	m=(tf6/tf7)
 	print (m)
