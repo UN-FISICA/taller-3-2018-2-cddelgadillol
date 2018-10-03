@@ -1080,11 +1080,10 @@ if __name__ == "__main__":
 			solucio=solucio-(uno/(uno+dos*contado))
 			contado=contado+uno
 			
-			#if comparar==solucio:
-				
-			g=g+1
+			if comparar==solucio:
+				solucio=solucio*multiplicador
+				g=90000
 			
 	g=0
-	solucio=solucio*multiplicador
 	print(contado)	
 	print (solucio)
