@@ -1084,25 +1084,20 @@ if __name__ == "__main__":
 	comparar= MyFloat(sf3,af3)
 	digo=MyFloat(prue,af3)
 	
-	amen=uno/digo
-	print (amen)
+	
+	g=0
 	while g<100:
 			comparar=solucio
 			solucio=solucio+(uno/(uno+dos*contado))
-			
 			contado=contado+uno
-			
 			solucio=solucio-(uno/(uno+dos*contado))
 			contado=contado+uno
-			
-			
 			if comparar==solucio:
 				solucio=solucio*multiplicador
 				g=90000
-			g=g+1
+			
 			
 			
 	g=0
-	
-	#print(contado)	
-	#print (solucio)
+	print(contado)	
+	print (solucio)
