@@ -2,14 +2,17 @@
 # -*- coding: UTF-8-*-
 
 sf1=["+",5]
-sf2=["+",2,3,4]
-sf3=["+",5,3,4]
+sf2=["+",0,0,0,0,2,3,4,0,0,0,0]
+sf3=["+",0,5,3,4]
 sf4=["+",2,3,4,8,6,5,3,1,2]
+sf5=["+",2,3,4,8,6,5,3,1,2]
 
 sf5=["-",4]
 sf6=["-",3,3,4]
 sf7=["-",8,3,4]
 sf8=["-",2,3,4,8,6,5,3,9,2]
+sf9=["-",2,3,4,8,6,5,3,9,2]
+
 
 prueba=["+",1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2]
 prue=[2,3,4,8,6,5,3,9,2]
@@ -17,8 +20,8 @@ pruebab=["-",9,7,3,8,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5,3,2,1,5
 prueb=[2,3,4,2]
 
 af2=[4,]
-af3=[3,3,4]
-af4=[8,3,4]
+af3=[0,0,0,0,3,3,4]
+af4=[8,3,4,0,0,0,0,0]
 af5=[2,3,4,8,6,5,3,9,2]
 
 tf6=(sf3,af2)
@@ -272,6 +275,7 @@ def suma(a, b):
 	global inicial
 	global davi
 	davi="rf"
+	
 	if estado==" ":
 		respuesta=sign(a[0][0],b[0][0],"+",a,b)
 		g=0
@@ -314,8 +318,10 @@ def suma(a, b):
 		respuesta[0][0]=signo
 		if residuo>0:
 				respuesta[0].insert(1,residuo)
+		if estado=="suma" or estado=="resta" :
+			estado=" "
+	if estado=="suma" or estado=="resta":
 		estado=" "
-	estado=" "
 	respuesta1=quitarc(respuesta)[0][:]
 	respuesta2=quitarc(respuesta)[1][:]
 	respuesta=(respuesta1,respuesta2)
@@ -334,7 +340,7 @@ def resta(a, b):
 	if estado==" ":
 		respuesta=sign(a[0][0],b[0][0],"-",a,b)
 		g=0
-		
+	
 	if estado=="resta":
 		davi="tres"
 		g=0
@@ -373,7 +379,8 @@ def resta(a, b):
 		if residuo>0:
 			
 				respuesta[0].insert(1,"error")
-	estado=" "
+	if estado=="suma" or estado=="resta" :
+		estado=" "
 	respuesta1=quitarc(respuesta)[0][:]
 	respuesta2=quitarc(respuesta)[1][:]
 	respuesta=(respuesta1,respuesta2)
@@ -476,7 +483,43 @@ def dfimal(a,deci):
 		a[0].pop(tama-1-g)
 		g=g+1
 	return a
+def division(a, b):
+	global inicial
+	olucion1=inicial[0][:];
+	olucion2=inicial[1][:];
+	olucion=(olucion1,olucion2)
+			
+	aa=desenca(a)
+	ba=desenca(b)
+	respt=aa/ba;
+	azucal=str(respt)
+	tamaño=len(azucal)
+	g=0
+	variab=9
+	olucion=quitarc(olucion)
+	olucion[1].pop(0)
+	while g<tamaño:
+		if azucal[g]=="." or variab==4:
+			if azucal[g]=="." :
+				variab=4
+			else:
+				variab=4
+				olucion[1].append(azucal[g])
+		else:
+			olucion[0].append(azucal[g])
+			variab=0
+		
+		g=g+1
+	if olucion[0][1]=="+" or olucion[0][1]=="-":
+		olucion[0][0]=olucion[0][1]
+		olucion[0][1]=0
+		olucion=quitarc(olucion)
+	variab=9
+	g=0
+	return olucion
 def multiplicacion(a, b):
+	##para normal elimine esta de abako y tofas sus incidencias
+	global guardado
 	global signo
 	global estado
 	global corrimiento
@@ -543,7 +586,9 @@ def multiplicacion(a, b):
 	sera=89
 	nsera=86
 	gf=98
+	pt=0
 	while g>0:
+		
 		asd=completar(asd,bsd)
 		bsd=completar(bsd,asd)
 		intermedi=A[g]*B[g]/10
@@ -555,18 +600,23 @@ def multiplicacion(a, b):
 		Nf2=suma(jF,multi)[1][:]
 		Nf=(Nf1,Nf2)
 		
+		
 		multi1w=inicial[0][:];
 		multi2w=inicial[1][:];
 		multi=(multi1w,multi2w)		
+
 		
 		actualice=len(Nf[0])
+		if actualice==1:
+			Nf[0].append(0)
+			actualice=2
 		solucion[0][tama-1-2*aux]=Nf[0][actualice-1]
+		pt=pt+1
 		Nf[0].pop(actualice-1)
 		jF=recuf(asd,bsd)
 		actu=len(asd[0])
 		act=len(bsd [0])
 
-		
 		a134=asd[0][:]
 		a234=asd[1][:]
 		a134.pop(actu-1)	
@@ -593,12 +643,15 @@ def multiplicacion(a, b):
 		
 		
 		actualice=len(jF[0])
+		if actualice==1:
+			jF[0].append(0)
+			actualice=2
 		solucion[0][tama-2-2*aux]=jF[0][actualice-1]
-		
+		pt=pt+1
 		jF[0].pop(actualice-1)
 		aux=aux+1
 		g=g-1
-	
+		
 		asd1=quitarc(asd)[0][:]
 		asd2=quitarc(asd)[1][:]
 		asd=(asd1,asd2)
@@ -609,23 +662,41 @@ def multiplicacion(a, b):
 		bsd=(bsd1,bsd2)
 		sera=len(asd[0])
 		nsera=len(bsd[0])
+		
+		
 		if sera==1 or nsera==1:
 			g=0
-
-	
 	solucion=quitarc(solucion)
+	
+	while len(solucion[0])<pt+1:
+		solucion[0].insert(1,0)
+		
 	actualice=len(jF[0])
 	if actualice>1:
 		g=0
 		while g<actualice-1:
 			solucion[0].insert(1,jF[0][actualice-g-1])
 			g=g+1
-		g=0
 	
-	solucion=dfimal(solucion,corrimiento)
+	g=0
+	pt=0
+	
+	if len(solucion[0])==1 and len(solucion[1])<2:
+		if len(solucion[1])==0:
+			solucion[0].append(0)
+			
+		else:
+			if solucion[1][0]==0:
+				solucion[0].append(0)
+	else:
+		solucion=dfimal(solucion,corrimiento)
+	
 	aux=0
 	
 	estado=" "
+	ent=len(solucion[0])
+	if ent<2:
+		solucion[0].append(0)
 	
 	if (solucion[0][1]=="+" or  solucion[0][1]=="-" ) :
 		solucion[0][1]=0	
@@ -637,48 +708,20 @@ def multiplicacion(a, b):
 	else:
 		signo="+"
 	solucion[0][0]=signo
+	ent=len(solucion[0])
+	if ent<2:
+		solucion[0].append(0)
+	
 	return solucion
-def division(a, b):
-	global inicial
-	olucion1=inicial[0][:];
-	olucion2=inicial[1][:];
-	olucion=(olucion1,olucion2)
-			
-	aa=desenca(a)
-	ba=desenca(b)
-	respt=aa/ba;
-	azucal=str(respt)
-	tamaño=len(azucal)
-	g=0
-	variab=9
-	olucion=quitarc(olucion)
-	olucion[1].pop(0)
-	while g<tamaño:
-		if azucal[g]=="." or variab==4:
-			if azucal[g]=="." :
-				variab=4
-			else:
-				variab=4
-				olucion[1].append(azucal[g])
-		else:
-			olucion[0].append(azucal[g])
-			variab=0
-		
-		g=g+1
-	if olucion[0][1]=="+" or olucion[0][1]=="-":
-		olucion[0][0]=olucion[0][1]
-		olucion[0][1]=0
-		olucion=quitarc(olucion)
-	variab=9
-	g=0
-	return olucion
 if __name__ == "__main__":
 	
 #sf1-8 
 #af2-5
 	
-	tf00=(sf7,af3)
-	tf55=(sf2,af5)
+	#tf00=(sf4,af3)
+	#tf55=(sf3,af4)
+	tf00=(["+",1,0],uno)
+	tf55=(["+",1,1,0],uno)	
 	print(tf00)
 	print(tf55)	
 	espuesta=comparacion(tf00,tf55)
