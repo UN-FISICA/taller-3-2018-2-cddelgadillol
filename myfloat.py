@@ -89,14 +89,15 @@ def comparacion(a, b):
 	kll=18
 	entero2=len(b[0])
 	decimal2=len(b[1])
-
+	
 	if entero>entero2:
 		respuesta="a>b"
 	else:
 		if entero2>entero:
 			respuesta="b>a"
+			kll=23
 		else:
-
+		
 			g=0
 			while g<entero2-1:
 				if a[0][g+1]==b[0][g+1]:
@@ -368,7 +369,7 @@ def division(a, b):
 	
 	entero3=len(a[0]);
 	entero4=len(b[0]);
-	
+
 	respuesta1=inicial[0][:];
 	respuesta2=inicial[1][:];
 	respuesta=(respuesta1,respuesta2)
@@ -382,11 +383,12 @@ def division(a, b):
 	minicontador=0
 	tamaño=0
 	contadorintermedio=0;
+
 	if len(a[0])<2:
 		a[0].append(0)
 	if len(b[0])<2:
 		b[0].append(0)
-		
+	
 	if entero3==2 or entero4==2:
 
 		if entero3==2:
@@ -401,27 +403,28 @@ def division(a, b):
 					respuesta[0].append(0)
 					respuesta[0][1]=0
 					return respuesta
+
 	if compadre=="b=a":
 		if len(respuesta[0])<2:
 			respuesta[0].append(0)
 			respuesta[0][1]=1
 			return respuesta
-			
+		
 	if compadre=="b>a":
 		g=0
 		respuesta[0].append(0)
 		a[0].append(0)
 		compadre=comparacion(a,b)
-		while compadre=="b>a" and cerodecimal<70:
+		while compadre=="b>a" and cerodecimal<32:
 			a[0].append(0)
 			cerodecimal=cerodecimal+1
 			respuesta[1].append(0)
 			compadre=comparacion(a,b)	
 
 		tamaño=cerodecimal
-		
-		while tamaño<70:
 
+		while tamaño<32:
+		
 			while compadre=="a>b":
 				a=resta(a,b)
 				minicontador=minicontador+1
@@ -429,18 +432,21 @@ def division(a, b):
 			if compadre=="b=a":
 				minicontador=minicontador+1
 				respuesta[1].append(minicontador)
-				tamaño=70
+				tamaño=32
+	
 			else:
 				respuesta[1].append(minicontador)
 				tamaño=tamaño+1
 				minicontador=0
 				a[0].append(0)
 				compadre=comparacion(a,b)
-				while compadre=="b>a" and tamaño<70:
+				while compadre=="b>a" and tamaño<32:
 					a[0].append(0)
 					tamaño=tamaño+1
 					respuesta[1].append(0)
 					compadre=comparacion(a,b)
+
+	
 #else:
 #falta parte de la division que da como resultados numero gigantes, eso se hara despues por ahora sirve para calcular pi
 	respuesta[0][0]=signo;
@@ -631,7 +637,7 @@ def resta(a, b):
 				
 		g=ente-1
 		while g>0:
-
+			
 			respuesta[0][g]=a[0][g]-b[0][g]-residuo
 			if respuesta[0][g]<0:
 				respuesta[0][g]=respuesta[0][g]+10
@@ -644,7 +650,8 @@ def resta(a, b):
 		
 		if residuo>0:
 			
-				respuesta[0].insert(1,"error")
+				g=g
+								#insert(1,"error")
 	if estado=="resta" or estado=="suma":
 		estado=" "
 	respuesta1=quitarc(respuesta)[0][:]
@@ -907,7 +914,7 @@ class MyFloat:
 						if residuo>0:
 								respuesta[0].insert(1,residuo)
 						estado=" "
-					estado=" "
+					estado=" "  
 					respuesta1=quitarc(respuesta)[0][:]
 					respuesta2=quitarc(respuesta)[1][:]
 					respuesta=(respuesta1,respuesta2)
@@ -971,8 +978,9 @@ class MyFloat:
 						g=0
 						respuesta[0][0]=signo
 						if residuo>0:
-							
-								respuesta[0].insert(1,"error")
+								g=g
+								#respuesta[0]=respuesta[0]
+								#insert(1,"error")
 					if estado=="resta":
 						estado=" "
 					respuesta1=quitarc(respuesta)[0][:]
@@ -1064,28 +1072,37 @@ if __name__ == "__main__":
 	sf3=["+",1]
 	sf4=["+",4]
 	sf5=["+",0]
+	prue=["+",1,3,3,5,6,9]
 	g=0
 	multiplicador=MyFloat(sf4,af3)
 	uno= MyFloat(sf3,af3)	
 	dos= MyFloat(sf2,af3)
 	denominadir= MyFloat(sf3,af3)
 	solucio= MyFloat(sf5,af3)
+	amen= MyFloat(sf5,af3)
 	contado= MyFloat(sf5,af3)
 	comparar= MyFloat(sf3,af3)
-
+	digo=MyFloat(prue,af3)
+	
+	amen=uno/digo
+	print (amen)
 	while g<100:
-			solucio=solucio+(uno/(uno+dos*contado))
 			comparar=solucio
+			solucio=solucio+(uno/(uno+dos*contado))
+			
 			contado=contado+uno
+			
 			solucio=solucio-(uno/(uno+dos*contado))
 			contado=contado+uno
-		
+			
+			
 			if comparar==solucio:
 				solucio=solucio*multiplicador
 				g=90000
+			g=g+1
 			
 			
 	g=0
 	
-	print(contado)	
-	print (solucio)
+	#print(contado)	
+	#print (solucio)
