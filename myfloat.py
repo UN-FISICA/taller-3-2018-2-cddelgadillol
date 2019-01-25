@@ -1086,7 +1086,7 @@ if __name__ == "__main__":
 	
 	
 	g=0
-	while g<100:
+	while g<1000:
 			comparar=solucio
 			solucio=solucio+(uno/(uno+dos*contado))
 			contado=contado+uno
@@ -1095,6 +1095,7 @@ if __name__ == "__main__":
 			if comparar==solucio:
 				solucio=solucio*multiplicador
 				g=90000
+			print (solucio*multiplicador)
 			
 			
 			
